@@ -12,16 +12,16 @@ root.render(
 );
 
 // Contoh penggunaan jsx secara langsung
-const name = "Drian Tcho";
+// const name = "Drian Tcho";
 
-function greet() {
-  return "Hi " + name;
-}
+// function greet() {
+//   return "Hi " + name;
+// }
 
-const element = <h1> {greet(name)}!! </h1>;
+// const element = <h1> {greet(name)}!! </h1>;
 
-const master = ReactDOM.createRoot(document.getElementById("master"));
-master.render(element);
+// const master = ReactDOM.createRoot(document.getElementById("master"));
+// master.render(element);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
