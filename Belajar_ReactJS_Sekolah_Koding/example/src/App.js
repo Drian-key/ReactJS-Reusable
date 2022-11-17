@@ -16,33 +16,44 @@ import { Component } from "react";
 //   );
 // }
 
-// STATE
-class Timer extends Component {
+// Penggunaan event dengan function
+// function Clicker() {
+//   function handleClick(e) {
+//     alert("success");
+//     e.preventDefault();
+//   }
+
+//   return (
+//     <a href="#" onClick={handleClick}>
+//       Klik bro
+//     </a>
+//   );
+// }
+
+// penggunaan event dengan class
+class Toggle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: props.start,
+      toggleStatus: true,
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  // Lifecycle
-  componentDidMount() {
-    this.addInterval = setInterval(() => this.increase(), 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.addInterval);
-  }
-
-  increase() {
-    // Update status time setiap detik
-    this.setState((state, props) => ({
-      time: parseInt(state.time) + 1,
+  handleClick() {
+    this.setState((state) => ({
+      toggleStatus: !state.toggleStatus,
     }));
   }
 
   render() {
-    return <div>{this.state.time} Detik</div>;
+    return (
+      <div>
+        <button onClick={this.handleClick}>{this.state.toggleStatus ? "ON" : "OFF"}</button>
+        <p>kodisi sekarang {this.state.toggleStatus ? "Menyala" : "Mati"}</p>
+      </div>
+    );
   }
 }
 
@@ -52,7 +63,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Timer start="0" />
+          <Toggle />
         </header>
       </div>
     );
