@@ -47,6 +47,7 @@ class Toggle extends Component {
     }));
   }
 
+  // render hasil
   render() {
     return (
       <div>
