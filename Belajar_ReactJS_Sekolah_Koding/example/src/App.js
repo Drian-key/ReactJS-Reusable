@@ -1,71 +1,44 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Component } from "react";
+import List from "./List";
 
-// Component - Properties
-
-// function Age(props) {
-//   return <span>umurnya {props.age}</span>;
-// }
-
-// function Greeting(props) {
-//   return (
-//     <h1>
-//       Hallo {props.name} - <Age age={props.age} />
-//     </h1>
-//   );
-// }
-
-// Penggunaan event dengan function
-// function Clicker() {
-//   function handleClick(e) {
-//     alert("success");
-//     e.preventDefault();
-//   }
-
-//   return (
-//     <a href="#" onClick={handleClick}>
-//       Klik bro
-//     </a>
-//   );
-// }
-
-// penggunaan event dengan class
-class Toggle extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleStatus: true,
+      todoItem: "",
+      items: [],
     };
-
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.setState((state) => ({
-      toggleStatus: !state.toggleStatus,
-    }));
-  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    // mencegah reload page
+    this.setState({
+      items: [...this.state.items, this.state.todoItem],
+      // cara di atas merupakan cara untuk push data ke array
+      // ...this.state.items <-- data sebelumnya
+      // , this.state.todoItem <-- data yang baru
+      todoItem: "",
+    });
+  };
 
-  // render hasil
+  handleChange = (event) => {
+    this.setState({
+      todoItem: event.target.value,
+    });
+  };
+
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>{this.state.toggleStatus ? "ON" : "OFF"}</button>
-        <p>kodisi sekarang {this.state.toggleStatus ? "Menyala" : "Mati"}</p>
-      </div>
-    );
-  }
-}
+        <form onSubmit={this.handleSubmit}>
+          <input value={this.state.todoItem} onChange={this.handleChange} />
+          <button>Add</button>
+        </form>
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Toggle />
-        </header>
+        <List items={this.state.items} />
       </div>
     );
   }
