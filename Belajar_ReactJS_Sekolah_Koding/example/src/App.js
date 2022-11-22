@@ -33,9 +33,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input value={this.state.todoItem} onChange={this.handleChange} />
-          <button>Add</button>
+        <form onSubmit={this.handleSubmit} className="flex gap-4">
+          <input value={this.state.todoItem} onChange={this.handleChange} className="bg-blue-300 rounded border border-slate-900" />
+          <button className="bg-yellow-200 px-2 rounded hover:bg-blue-500 transition-all ease-in-out">Add</button>
         </form>
 
         <List items={this.state.items} />
