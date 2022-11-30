@@ -1,38 +1,36 @@
 import "./App.css";
 import { Component } from "react";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+
+function Home() {
+  return <h2>Halaman Home</h2>;
+}
+
+function ListView() {
+  return <h2>Halaman Users</h2>;
+}
 
 class App extends Component {
-  // API
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      isLoading: true,
-    };
-  }
-
-  // funsi ini akan di jalankan ketika component sudah siap
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => this.setState({ items: data, isLoading: false }));
-  }
-
   render() {
-    const { items, isLoading } = this.state;
-
-    if (isLoading) {
-      return <p>LOADING...</p>;
-    }
-
     return (
-      <div>
-        <ul>
-          {items.map((item, index) => (
-            <li key={index}>{item.name}tes</li>
-          ))}
-        </ul>
-      </div>
+      <BrowserRouter>
+        <div>
+          <nav>
+            <li>
+              <Link to="/">Home</Link>
+              <p>tes</p>
+            </li>
+            <li>
+              <Link to="/user">User</Link>
+            </li>
+          </nav>
+
+          <main>
+            <Route path="/" exact component="{Home}" />
+            <Route path="/user" exact component="{ListView}" />
+          </main>
+        </div>
+      </BrowserRouter>
     );
   }
 }
