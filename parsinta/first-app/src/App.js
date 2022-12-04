@@ -42,7 +42,31 @@ function App() {
               <div className="card-footer">My name is {name ? name : "..."}</div>
             </div>
           </div>
-          <div className="col-md-6">tes</div>
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-header">Login state function</div>
+              <div className="card-body">
+                <form>
+                  <div className="mb-2">
+                    <label htmlFor="username" className="form-label">
+                      Username
+                    </label>
+                    <input type="text" className="form-control" name="username" id="username" />
+                  </div>
+                  <div className="mb-4">
+                    <label htmlFor="password" className="form-label">
+                      Password
+                    </label>
+                    <input type="password" className="form-control" name="password" id="password" />
+                  </div>
+                  <button type="submit" className="btn btn-primary btn-block">
+                    Login
+                  </button>
+                </form>
+              </div>
+              <div className="card-footer">Silahkan login</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
