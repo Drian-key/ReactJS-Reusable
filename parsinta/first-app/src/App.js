@@ -22,7 +22,7 @@ function App() {
   const submitHandlerLogin = (e) => {
     e.preventDefault();
 
-    if (username == "drian" && password == "123") {
+    if (username === "drian" && password === "123") {
       setUserPw(`Berhasil Login`);
     } else {
       setUserPw(`Gagal Login`);
