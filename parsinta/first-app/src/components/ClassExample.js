@@ -40,7 +40,7 @@ class ClassExample extends Component {
   submitHandlerSaya = (e) => {
     e.preventDefault();
 
-    if (this.state.username == "drian" && this.state.password == "123") {
+    if (this.state.username === "drian" && this.state.password === "123") {
       this.setState({
         user_pw: `Berhasil Login`,
       });
