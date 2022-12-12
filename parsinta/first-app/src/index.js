@@ -6,33 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./RRD/App";
 import { createBrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <h1>home</h1>
-        <Link to="about">about</Link>
-      </div>
-    ),
-  },
-  {
-    path: "about",
-    element: (
-      <div>
-        <h1>about</h1>
-        <Link to="/">Back to home</Link>
-      </div>
-    ),
-  },
-]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
-  <RouterProvider router={router} />
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

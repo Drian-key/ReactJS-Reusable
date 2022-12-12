@@ -1,24 +1,25 @@
 import React from "react";
-import { createBrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Navigation from "./components/Navigation";
+import Profile from "./components/Profile";
+import About from "./components/About";
+import NotFound from "./components/NotFound";
 
-const App = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <h1>Hai ini dari home</h1>
-        <Link to="about">about</Link>
-      </div>
-    ),
-  },
-  {
-    path: "about",
-    element: (
-      <div>
-        <h1>Hi ini dari about</h1>
-      </div>
-    ),
-  },
-]);
+function App(props) {
+  return (
+    <BrowserRouter>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="profile" element={<Profile />}>
+          <Route path=":username" element={<Profile />} />
+        </Route>
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default App;
