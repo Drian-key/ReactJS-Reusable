@@ -11,7 +11,9 @@ function Routee(props) {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="profile" element={<Profile />}>
-          <Route path=":username" element={<Profile />} />
+          <Route path=":username" element={<Profile />}>
+            <Route path=":umur" element={<Profile />} />
+          </Route>
         </Route>
         <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />

@@ -6,7 +6,8 @@ function Navigation(props) {
     <div>
       <h1>Belajar React Router Dom</h1>
       <nav>
-        <Link to="/">Home</Link> | <Link to="profile">Profile</Link> | <Link to="about">About</Link>
+        <Link to="/">Home</Link> | <Link to="profile">Profile</Link> |
+        <Link to="about"> About</Link> | <Link to="profile/drian">Drian</Link>
       </nav>
       <br />
       <br />

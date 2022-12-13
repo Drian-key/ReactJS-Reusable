@@ -5,7 +5,10 @@ function Profile(props) {
   const params = useParams();
   return (
     <div>
-      <h1>This is {params.username} profile</h1>
+      <h1>
+        This is {params.username} profile
+        {params.umur ? ` umur ${params.umur} tahun` : ""}
+      </h1>
     </div>
   );
 }
