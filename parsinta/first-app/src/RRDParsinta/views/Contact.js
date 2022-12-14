@@ -1,11 +1,11 @@
 import React from "react";
 
-function Home(props) {
+function Contact(props) {
   return (
     <div className="container">
-      <div>Homee</div>
+      <div className="">Contact</div>
     </div>
   );
 }
 
-export default Home;
+export default Contact;
