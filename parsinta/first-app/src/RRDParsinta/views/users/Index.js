@@ -31,7 +31,7 @@ function Index(props) {
                     </a>
                     {user.username}
                   </div>
-                  <NavLink to="" className="btn btn-primary">
+                  <NavLink to={`/users/${user.id}`} className="btn btn-primary">
                     View profile
                   </NavLink>
                 </div>

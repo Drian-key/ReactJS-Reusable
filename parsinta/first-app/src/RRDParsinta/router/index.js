@@ -7,6 +7,7 @@ import Contact from "../views/Contact";
 import NotFound from "../views/errors/NotFound";
 import Home from "../views/Home";
 import UsersIndex from "../views/users/Index";
+import UsersShow from "../views/users/Show";
 
 function index(props) {
   return (
@@ -42,6 +43,15 @@ function index(props) {
           <>
             <Navbar />
             <UsersIndex />
+          </>
+        }
+      />
+      <Route
+        path="/users/:identifier"
+        element={
+          <>
+            <Navbar />
+            <UsersShow />
           </>
         }
       />
