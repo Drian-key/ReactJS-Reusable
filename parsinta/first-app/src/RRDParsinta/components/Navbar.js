@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../../logo.svg";
+import { UserProvider } from "../views/context/User";
+import UserAutentication from "./UserAutentication";
 
 function Navbar({ childern }) {
   return (
@@ -33,6 +35,13 @@ function Navbar({ childern }) {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/users">
                   Users
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/">
+                  <UserProvider>
+                    <UserAutentication />
+                  </UserProvider>
                 </NavLink>
               </li>
             </ul>
